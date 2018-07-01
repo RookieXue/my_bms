@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="libraryModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="libraryEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Book_Message" EntityType="libraryModel.Book_Message" />
+    <EntitySet Name="Member_Message" EntityType="libraryModel.Member_Message" />
+  </EntityContainer>
+  <EntityType Name="Book_Message">
+    <Key>
+      <PropertyRef Name="ISBN" />
+    </Key>
+    <Property Name="ISBN" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="author" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="pub" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="price" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="content" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="number" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Member_Message">
+    <Key>
+      <PropertyRef Name="number" />
+    </Key>
+    <Property Name="number" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="sex" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Borrow_Book" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="BorBook_Cnt" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>

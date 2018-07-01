@@ -1,0 +1,393 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+		<style type="text/css">
+* {
+    margin: 0px;
+    padding: 0px;
+}
+a{
+	
+	text-decoration: none;
+}
+#ztop {
+    height: 44px;
+    background: url(/img/opacity70.png) repeat;
+	 position: relative;
+    z-index: 998;
+    color:white;
+}
+#box_center {
+    width: 960px;
+    margin: 15px auto 0 auto;
+    
+}
+.wrap {
+    width: 960px;
+    margin: 0px auto;
+}
+.logo {
+    width: 218px;
+    height: 36px;
+    float: left;
+    padding: 22px 0;
+}
+.logo a {
+    background: url() no-repeat;
+    width: 235px;
+   height: 88px;
+ 
+    display: block;
+
+}
+.suo {
+    background: url(/img/sou_icons.gif) no-repeat;
+    width: 519px;
+    height: 28px;
+    float: right;
+    margin-top: 27px;
+    display: inline;
+    border: solid #f4f4f4 3px;
+    margin-right: 0px;
+}
+.channelSelect {
+    width: 64px;
+    height: 28px;
+    float: left;
+    position: relative;
+}
+.curChannel {
+    width: 52px;
+    height: 28px;
+    display: block;
+    line-height: 28px;
+    padding-left: 12px;
+    color: #0485be;
+}
+.suo .Tens {
+    width: 344px;
+    height: 28px;
+    float: left;
+    border: none;
+    background: none;
+    margin-left: 6px;
+    line-height: 28px;
+}
+.suo .anniu {
+    width: 98px;
+    height: 28px;
+    float: right;
+    border: 0 none;
+    background: none;
+    cursor: pointer;
+}
+.book_nav {
+    width: 960px;
+    height: 40px;
+    margin: 2px auto 0;
+    background: url(/img/book_nav.gif) no-repeat;
+}
+.clear {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+}
+.Categ {
+    float: left;
+    width: 700px;
+    padding-left: 20px;
+    height: 33px;
+    padding-top: 7px;
+}
+.Categ a {
+    width: 78px;
+    height: 26px;
+    display: inline-block;
+    line-height: 26px;
+    text-align: center;
+    float: left;
+    color: #0285bd;
+    font-weight: bold;
+    text-decoration: none;
+}
+.All {
+    width: 160px;
+    height: 40px;
+    float: left;
+    position: relative;
+    z-index: 99;
+}
+.All .All_title {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    color: #0073a4;
+    padding-left: 20px;
+    background: url(/img/book_nav_icons.gif) no-repeat right 0;
+    overflow: hidden;
+}
+.Categ_left_nav {
+    width: 220px;
+    line-height: 30px;
+}
+ol, ul, li {
+    list-style: none;
+}
+.Categ_left_nav li {
+    border-bottom: dashed #e8e8e8 1px;
+}
+.Categ_left_nav li.current a {
+    font-weight: bold;
+    color: #323232;
+}
+.Categ_left_nav li a {
+    color: #0384bd;
+    display: block;
+    zoom: 1;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.Categ_left_nav li span {
+    float: right;
+    color: #656565;
+}
+
+
+.book_content{
+	margin: 0 auto;
+	margin-top: 20px;
+
+}
+
+.list li {
+    padding: 20px 0;
+    border-bottom: dashed #e8e8e8 1px;
+}
+		</style>
+         <link rel=stylesheet href="~/Scripts/bootstrap.min.css" />
+        <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div id="ztop">
+			<span class="hello" style="display:block; margin-left:100px; padding-top:10px;"></span>
+		</div>
+		
+		<div id="box_center">
+
+			<div class="indexHeader wrap">
+				<div class="logo">
+					<a href="#"></a>
+				</div>
+				<div class="rightF">
+					<div class="suo">
+						<div class="channelSelect">
+							<a class="curChannel">图书</a>
+						</div>
+						<form>
+							<input name="" type="text" class="Tens" id="search" />
+							<input type="button" name="button" class="anniu" onclick="search_book()" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="book_nav">
+			<div class="All">
+				<a class="All_title"  href="#" target="_blank"onclick="return false;" data-toggle="modal" data-target="#returnBook" >还书</a>
+			</div>
+			<div class="Categ">
+				<a href="">首页</a>
+			</div>
+		</div>
+
+	<div class="book_content">
+		
+		<div class="box_right" style="width: 220px; float: left; margin-left: 200px;" >
+			<div class="Categ_left_nav">
+                <li class="current"><a href=""><span></span>您借阅的书</a></li>
+				    <ul class="borr_book">
+					
+
+				    </ul>
+			</div>
+		</div>
+
+
+		<div class="box_left" style="float: right; width: 710px; margin-right: 210px;">
+			<ul class="list">
+	
+			</ul>
+		</div>
+	</div>
+
+
+    <div class="modal fade" id="returnBook" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">归还书籍</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="书名" id="returnName">
+		        </div><br>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="returnbook()">归还</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+    <script type="text/javascript">
+        var s_name,number,sex,code,bor_Book,bor_Cnt;
+        $(function () {
+    
+                init();
+
+            })
+        function init() {
+            $.post("/Home/init", {}, function (data) {
+                if (data) {
+               //     alert(data);
+                    var result = JSON.parse(data);
+                    
+                    s_name = result.name;
+                    number = result.number;
+                    sex = result.sex;
+                    code = result.code;
+                    bor_book = result.Borrow_Book;
+                    bor_Cnt = result.BorBook_Cnt;
+                    //    $(".hello").append("欢迎您，" + result.userName + "同学！");
+                    $(".hello")[0].innerHTML = "欢迎您，" + s_name + "同学！";
+                    if (bor_book != null) {
+                        var str = (bor_book).split(",");
+        //                alert(str[0]);
+                        $(".borr_book")[0].innerHTML = "";
+                        for (var i = 0; i < str.length; i++) {
+                        
+                            $(".borr_book").append("<li>" + str[i] + "</li>");
+                           
+                        }
+                    }
+                    else {
+
+                    }
+                }
+                else {
+
+                }
+            })
+
+        }
+
+
+        function search_book() {
+            var name = $.trim($("#search").val());
+
+            $.post("/Home/search_book", { "name": name }, function (data) {
+                if (data) {
+                    var result = JSON.parse(data);
+                    $(".list").append("<li><p>书名:" + result.name + "</p><p>IBSN:" + result.ISBN + "</p><p>作者:" + result.author + "</p><p>出版社:" + result.pub + "</p><p>价格:" + result.price + "</p><p>内容简介:" + result.content + "</p><br/><p><button value='借阅' onclick='borbook()'>借阅</button></p></li>");
+                }
+                else {
+                    alert("查询失败!");
+                }
+            })
+        }
+
+      
+    
+        
+
+        function borbook() {
+           
+            var name = $.trim($("#search").val());
+            if (bor_Cnt > 0) {
+                var newCnt = bor_Cnt;
+                var newBor = bor_book;
+                if (newBor == null) {
+                    newBor = "";
+                    newBor = name + ",";
+
+                } else {
+                    newBor = newBor + name + ",";
+                }
+
+
+                newCnt = (newCnt - 1).toString();
+
+                $.post("/Home/editMem", { "number": number, "name": s_name, "sex": sex, "code": code, "borrow_book": newBor, "bor_cnt": newCnt }, function (res) {
+              
+                    var v = res.data;
+                    if (v == 1) {
+                        alert("借阅成功");
+                        init();
+                    //    $(".borr_book").append("<li>" + name + "</li>");
+                    }
+                    else {
+                        alert("借阅失败");
+
+                    }
+                })
+
+            }
+            else {
+
+            }
+        }
+
+
+    
+        function returnbook() {
+           
+            var name = $.trim($("#returnName").val());
+            var newCnt = bor_Cnt;
+            newCnt = parseInt(newCnt);
+            var newBor = bor_book;
+          
+                
+                if (bor_book != null) {
+                    var str = (bor_book).split(",");
+                    var result = str.filter(function (item, index, array) { return item != name });
+                    newCnt = (newCnt + 1).toString();
+                    newBor = result.join(",");
+                }
+                else {
+                    alert("未借阅书籍");
+                }
+               
+                $.post("/Home/returnbook", { "number": number, "name": s_name, "sex": sex, "code": code, "borrow_book": newBor, "bor_cnt": newCnt }, function (res) {
+
+                    var v = res.data;
+                    if (v == 1) {
+                        alert("归还成功");
+                        init();
+                      
+                    }
+                    else {
+                        alert("归还失败");
+
+                    }
+                })
+
+
+        }
+
+    </script>
+	</body>
+</html>

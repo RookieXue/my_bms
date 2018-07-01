@@ -1,0 +1,57 @@
+﻿@model Cour_design.Models.Member_Message
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Member_Message</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.number)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.number)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.sex)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.sex)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.code)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.code)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Borrow_Book)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Borrow_Book)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BorBook_Cnt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BorBook_Cnt)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,461 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		    li
+		    {
+                list-style:none;
+		    }
+		header {
+    position: absolute;
+}
+header {
+    width: 100%;
+    height: 80px;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+			.head_box {
+    max-width: 1200px;
+    min-width: 1024px;
+    height: 80px;
+    margin: 0 auto;
+}
+.head_left {
+    height: 100%;
+}
+.head_left {
+    width: 30%;
+    float: left;
+}
+.head_left a {
+    display: inline-block;
+    width: 286px;
+    max-height: 70px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+a {
+    text-decoration: none;
+    color: #00c896;
+}
+.head_left img {
+    width: auto;
+    height: 60px;
+    margin-top: 0;
+}
+.head_right {
+    position: relative;
+    float: right;
+    width: 550px;
+    line-height: 80px;
+    margin-right: 40px;
+}
+.head_right input {
+    margin-top: 20px!important;
+    color: black;
+    width: 370px!important;
+    height: 38px!important;
+    border: 1px solid rgba(255,255,255,0.5)!important;
+    border-radius: 10px!important;
+    text-indent: 10px!important;
+    font-size: 14px!important;
+    margin-right: 40px!important;
+   
+
+    -webkit-box-sizing: border-box;
+    padding-right: 40px;
+    
+  
+}
+.login {
+    position: relative;
+    float: right;
+}
+.login_samestyle a {
+    font-size: 12px!important;
+    line-height: 16px;
+    display: inline-block;
+    color: #fff;
+}
+.dzfw {
+    width: 570px;
+    height: 240px;
+    float: left;
+    padding-left: 12px;
+    padding-top: 14px;
+    background-color: #fff;
+    padding-bottom: 15px;
+    margin-top:80px;
+}
+.dzfw_left {
+    width: 42px;
+    height: 240px;
+    margin-top:25px;
+    float: left;
+    background: url(/img/tu5.jpg) no-repeat;
+}
+.dzfw_left h3 {
+    line-height: 25px;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    color: #fff;
+    font-weight: bold;
+    width: 18px;
+    margin-left: 12px;
+    margin-top: 20px;
+}
+.dzfw_right {
+    margin-left: 10px;
+    float: left;
+    width: 504px;
+    height: 240px;
+}
+.dzfw_right_top {
+    background: url(/img/dzfw_right_top.jpg) no-repeat;
+    width: 504px;
+    height: 31px;
+}
+.dzfw_right_nr {
+    margin-left: 15px;
+    margin-top: 35px;
+    width: 468px;
+    height: 166px;
+}
+
+.dzfw_right_nr ul li {
+    width: 207px;
+    height: 43px;
+    text-align: center;
+    line-height: 43px;
+    float: left;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+.dzfw_right_nr ul li a {
+    color: #fff;
+    font-weight: bold;
+    font-family: "微软雅黑";
+}
+
+		
+
+		</style>
+
+    <link rel=stylesheet href="~/Scripts/bootstrap.min.css" />
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div  class="head_box">
+				<div class="head_left">
+					<a href="">
+						<img src="/img/e51d3a5feacb4df0b905cbb393d4d07d.png" height="50"  />
+					</a>
+				</div>
+				<div class="head_right">
+					<input type="text" placeholder="按书名/作者查找" id="search"  />
+					<span class="login">
+						<div class="login_samestyle " style="width: 130px;height: 100%">
+							<a href="#" target="_blank" onclick="search_book(); return false;">搜索</a>
+						</div>
+					</span>
+				</div>
+			</div>
+		</header>
+
+       <div class="dzfw">
+            <div class="dzfw_left">
+                <h3>管理服务</h3>
+            </div>
+            <div class="dzfw_right">
+                <div class="dzfw_right_top">
+              
+                </div>
+                <div class="dzfw_right_nr">
+                    <ul>
+                        <li style="background:url(/img/gjhj.jpg) no-repeat"><a href="#" target="_blank" onclick="return false;" data-toggle="modal" data-target="#addBook">添加书籍</a></li>
+                        <li style="background:url(/img/dzhd.jpg) no-repeat"><a href="#" target="_blank"onclick="return false;" data-toggle="modal" data-target="#delBook">删除书籍</a></li>
+                        <li style="background:url(/img/wxcd.jpg) no-repeat"><a href="#" target="_blank"onclick="return false;" data-toggle="modal" data-target="#checkReader">查看读者</a></li>
+                        <li style="background:url(/img/zwhxqk.jpg) no-repeat"><a href="#" target="_blank"onclick="return false;" data-toggle="modal" data-target="#modBook">修改书籍</a></li>
+                    </ul>
+                </div>
+            </div>
+       </div>
+
+       <div class="box_left" style="float: right; width: 700px; margin-top:100px">
+			<ul class="list">
+	
+			</ul>
+		</div>
+ 
+
+ <div class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加书籍</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="ISBN" id="ISBN">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="书名" id="name">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="作者" id="author">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="出版社" id="pub">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="定价" id="price">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="内容简介" id="content">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="数量" id="number">
+		        </div><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="addBook()">添加</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+
+<div class="modal fade" id="delBook" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">删除书籍</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="ISBN" id="delISBN">
+		        </div><br>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="delBook()">删除</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="modBook" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">修改书籍信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			       书籍ISBN <input type="text" class="form-control" placeholder="ISBN" id="m_ISBN"  >
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			       书籍名称 <input type="text" class="form-control" placeholder="书名" id="m_name">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        书籍作者<input type="text" class="form-control" placeholder="作者" id="m_author">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        出版公司<input type="text" class="form-control" placeholder="出版社" id="m_pub">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        书籍定价<input type="text" class="form-control" placeholder="定价" id="m_price">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        内容简介<input type="text" class="form-control" placeholder="内容简介" id="m_content">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        书籍数量<input type="text" class="form-control" placeholder="数量" id="m_number">
+		        </div><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="modBook()">修改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<div class="modal fade" id="checkReader" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">查看读者</h4>
+            </div>
+            <div class="checkReader">
+                 <div class="input-group input-group-lg" style="margin:0 auto">		
+			       读者姓名: <input type="text" class="form-control" placeholder="" id="c_name" >
+		         </div><br>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="checkReader()">查看</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript">
+
+    function addBook() {
+        var ISBN = $.trim($("#ISBN").val());
+        var name = $.trim($("#name").val());
+        var author = $.trim($("#author").val());
+        var pub = $.trim($("#pub").val());
+        var price = $.trim($("#price").val());
+        var content = $.trim($("#content").val());
+        var number = $.trim($("#number").val());
+
+        $.post("/Home/addBook", { "ISBN": ISBN, "name": name, "author": author, "pub": pub, "price": price, "content": content, "number": number }, function (result) {
+            var v = result.data;
+            if (v == 1) {
+                alert("添加成功!");
+            }
+            else {
+                alert("添加失败!");
+            }
+        })
+    }
+
+    function delBook() {
+        var ISBN = $.trim($("#delISBN").val());
+      
+
+        $.post("/Home/delBook", { "ISBN": ISBN }, function (result) {
+            var v = result.data;
+            if (v == 1) {
+                alert("删除成功!");
+            }
+            else {
+                alert("删除失败!");
+            }
+        })
+    }
+
+    function search_book() {
+        var name = $.trim($("#search").val());
+
+        $.post("/Home/search_book", { "name": name }, function (data) {
+            if (data) {
+                var result = JSON.parse(data);
+                $(".list")[0].innerHTML = ("<li>书名:<p class='name'>" + result.name + "</p>IBSN:<p class='ISBN'>" + result.ISBN + "</p>作者:<p class='author'>" + result.author + "</p>出版社:<p class='pub'>" + result.pub + "</p>价格:<p class='price'>" + result.price + "</p>内容简介:<p class='content'>" + result.content + "</p>数量:<p class='number'>" + result.number + "<p></p><button value='借阅'  onclick='mod_book()' class='btn1' data-toggle='modal' data-target='#modBook'></button></p></li>");
+            }
+            else {
+                alert("查询失败!");
+            }
+        })
+    }
+
+
+
+    function modBook(){
+
+        var ISBN = $.trim($("#m_ISBN").val());
+        var name = $.trim($("#m_name").val());
+        var author = $.trim($("#m_author").val());
+        var pub = $.trim($("#m_pub").val());
+        var price = $.trim($("#m_price").val());
+        var content = $.trim($("#m_content").val());
+        var number = $.trim($("#m_number").val());
+
+        $.post("/Home/modBook", { "ISBN": ISBN, "name": name, "author": author, "pub": pub, "price": price, "content": content, "number": number }, function (result) {
+            var v = result.data;
+            if (v == 1) {
+                alert("修改成功!");
+            }
+            else {
+                alert("修改失败!");
+            }
+        })
+
+
+        }
+
+    function checkReader() {
+
+        var name = $.trim($("#c_name").val());
+
+        $.post("/Home/checkReader", { "name": name }, function (data) {
+            if (data) {
+            
+                var result = JSON.parse(data);
+                  
+                $(".checkReader").append("<p>读者姓名:" + result.name + "</p><p>读者编号:" + result.number + "</p><p>读者性别:" + result.sex + "</p><p>读者密码:" + result.code + "</p><p>借阅书籍:" + result.Borrow_Book + "</p><p>剩余数量:" + result.BorBook_Cnt + "</p><br/>");
+
+     
+            }
+            else {
+
+            }
+        })
+    }
+
+    function borbook() {
+
+        var name = $.trim($("#search").val());
+        if (bor_Cnt > 0) {
+            var newCnt = bor_Cnt;
+            var newBor = bor_book;
+            if (newBor == null) {
+                newBor = "";
+                newBor = name + ",";
+
+            } else {
+                newBor = newBor + name + ",";
+            }
+
+
+            newCnt = (newCnt - 1).toString();
+
+            $.post("/Home/editMem", { "number": number, "name": s_name, "sex": sex, "code": code, "borrow_book": newBor, "bor_cnt": newCnt }, function (res) {
+
+                var v = res.data;
+                if (v == 1) {
+                    alert("借阅成功");
+                    init();
+                    //    $(".borr_book").append("<li>" + name + "</li>");
+                }
+                else {
+                    alert("借阅失败");
+
+                }
+            })
+
+        }
+        else {
+
+        }
+    }
+
+</script>
+	</body>
+</html>
+

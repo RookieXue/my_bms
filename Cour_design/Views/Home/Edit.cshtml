@@ -1,0 +1,75 @@
+﻿@model Cour_design.Models.Member_Message
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Member_Message</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.number)
+            @Html.ValidationMessageFor(model => model.number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.sex)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.sex)
+            @Html.ValidationMessageFor(model => model.sex)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.code)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.code)
+            @Html.ValidationMessageFor(model => model.code)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Borrow_Book)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Borrow_Book)
+            @Html.ValidationMessageFor(model => model.Borrow_Book)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BorBook_Cnt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BorBook_Cnt)
+            @Html.ValidationMessageFor(model => model.BorBook_Cnt)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

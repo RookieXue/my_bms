@@ -1,0 +1,337 @@
+﻿@{
+    ViewBag.Title = "tools";
+}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        
+        <script type="text/javascript" src="~/EasyUI/jquery.min.js"></script>
+        <script type="text/javascript" src="~/EasyUI/locale/easyui-lang-zh_CN.js"></script>
+        <link rel="stylesheet" href="~/EasyUI/themes/default/easyui.css" type="text/css" />
+        <script type="text/javascript" src="~/Scripts/jquery-1.11.3.min.js"></script>
+        <link  rel="stylesheet" href="~/EasyUI/themes/icon.css"type="text/css" />
+        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="~/Scripts/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Scripts/index.css">
+  
+        <style type="text/css">
+            *{
+                margin:0;
+                padding:0;
+            }
+            body{               
+                background-color: #E6FBFF;
+                background-image: url(/img/in1.jpg);
+                background-repeat: repeat-x;
+            }
+            .top{
+                height: 120px;
+                width:100%;
+                background-color:#52ABD3;
+
+            }
+            .in_top {
+                height: 120px;
+                width: 966px;
+                margin-right: auto;
+                margin-left: auto;
+                background-image: url(/img/top_im5.png);
+                background-repeat: no-repeat;
+                background-position: right;
+            }
+            .top_sou {
+                background-repeat: no-repeat;
+                height: 82px;
+                width: 490px;
+                margin-top: 20px;
+                float: left;
+                margin-left: 30px;
+            }
+            #top_sou_dl {
+                float: left;
+                font-size: 13px;
+                color: #FFFFFF;
+                text-decoration: none;
+                margin-left: 12px;
+            }
+            #top_sou_dl a {
+                color: #FFF;
+                text-decoration: none;
+            }
+            #top_sou_form {
+                background-repeat: no-repeat;
+                height: 34px;
+                width: 468px;
+                margin-top: 13px;
+                float: left;
+                margin-left: 12px;
+                font-size: 14px;
+                color: #000000;
+                text-decoration: none;
+                background-image: url(/img/top_im3.png);
+                background-position: right;
+                padding-top: 5px;
+                padding-bottom: 1px;
+                padding-left: 1px;
+            }
+            select {
+                border-radius: 0px;
+                border-color: rgb(169, 169, 169);
+            }
+            input {
+                background-color: white;
+                padding: 1px;
+                border-width: 2px;
+            }
+            .in_daohang {
+                background-image: url(/img/in2.jpg);
+                background-repeat: repeat-x;
+                height: 40px;
+                margin-top:-10px;
+            }
+            #in_daohang_a {
+                width: 966px;
+                margin-right: auto;
+                margin-left: auto;
+                font-size: 15px;
+                font-weight: bold;
+                color: #BF2F48;
+                text-decoration: none;
+            }
+            #in_daohang_a li a {
+                width: 120px;
+                font-size: 15px;
+                font-weight: bold;
+                color: #BF2F48;
+                text-decoration: none;
+                height: 32px;
+                text-align: center;
+                margin-top: -5px;
+                padding-top: 15px;
+            }
+        in_daohang    ul li{
+                  float:left;
+                  list-style:none;
+            }
+            .current a {
+                color: #BF2F48;
+                display: block;
+            }
+  #content_book_js_c {
+    background-color: #FBFDFC;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-right-color: #DEDCDD;
+    border-left-color: #DEDCDD;
+    font-size: 12px;
+    color: #696968;
+    text-decoration: none;
+    line-height: 26px;
+    padding-right: 6px;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    background-position: top;
+    width: 736px;
+    margin:-7px auto 0 auto;
+    height: auto;
+}
+
+  .content_book_js_con {
+    background-color: #FBFDFC;
+    font-size: 12px;
+    color: #696968;
+    text-decoration: none;
+    line-height: 26px;
+    background-position: top;
+    margin-top: 10px;
+    width: 714px;
+    float: left;
+    height: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+            ul li{
+                list-style:none;
+            }
+        </style>
+	</head>
+	<body>
+        <div class="top">
+            <div class="in_top">
+                <div class="top_sou">
+                    <div id="top_sou_dl">
+                        <span>
+                            <a href="" onclick="return false;" data-toggle="modal" data-target="#loginModal">登录</a>
+                            &nbsp;&nbsp;
+                            <a href="#" onclick="return false;" data-toggle="modal" data-target="#myModal">注册</a>
+                        </span>
+                    </div>
+                    <div id="top_sou_form">
+                        <label>
+                            <select>
+                                <option>电子书</option>
+                            </select>
+                        </label>
+                        <label>
+                            <input  type="text" style="text-align:center;font-size:13px;" placeholder="按书名/作者查询" id="search"/>
+                        </label>
+                        <label>
+                            <input type="button" value="搜索" onclick="search_book()"/>
+                        </label>
+                        <span style="color: rgb(51, 51, 51);">
+                            &nbsp;&nbsp;
+                            高级搜索
+                        </span>
+                        &nbsp;
+                        <span style="color: rgb(51, 51, 51);">
+                            |&nbsp;&nbsp;
+                            搜索帮助
+                        </span>
+                    </div>
+                </div>
+            </div>
+	    </div>
+        <div class="in_daohang">
+            <div id="in_daohang_a">
+                <ul>
+                    <li class="current">
+                        <a href="~/Home/Index">首页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content_book_js_c">
+           
+        </div>
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					注册用户
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="学号" id="snoA">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="姓名" id="snameA">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="性别" id="ssexA">
+		        </div><br>
+                <div class="input-group input-group-lg" style="margin:0 auto">		
+			        <input type="text" class="form-control" placeholder="密码" id="spasswordA">
+		        </div><br>
+			</div>
+			<div class="modal-footer" style="margin:0 auto">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" onclick="addStuInfo()">
+					注册
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+        
+     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	
+	<div class="modal-dialog modal-sm" style="width:540px;">
+		<div class="modal-content" style="border:none;">
+			<div class="col-left"></div>
+			<div class="col-right">
+				<div class="modal-header">
+					<button type="button" id="login_close" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="loginModalLabel" style="font-size: 18px;">登录</h4>
+				</div>
+				<div class="modal-body">
+					<section class="box-login v5-input-txt" id="box-login">
+						<form id="login_form" action="" method="post" autocomplete="off">
+							
+							<ul>
+								<li class="form-group"><input class="form-control" id="id_account_l" maxlength="50" name="account_l" placeholder="请输入学号" type="text" style="width:250px"></li>
+								<li class="form-group"><input class="form-control" id="id_password_l" name="password_l" placeholder="请输入密码" type="password" style="width:250px"></li>
+							</ul>
+						</form>
+						
+
+						<div class="login-box marginB10">
+							<button id="login_btn" type="button" class="btn btn-micv5 btn-block globalLogin" onclick="checkLogin()">登录</button>
+							<div id="login-form-tips" class="tips-error bg-danger" style="display: none;">错误提示</div>
+						</div>
+
+						
+						<div class="threeLogin"><span>其他方式登录</span><a class="nqq" href="javascript:;"></a><a class="nwx" href="javascript:;"></a><!--<a class="nwb"></a>--></div>
+						
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+        <script type="text/javascript">
+   
+
+            function addStuInfo() {
+                var sno = $.trim($("#snoA").val());
+                var sname = $.trim($("#snameA").val());
+                var ssex = $.trim($("#ssexA").val());
+                var spassword = $.trim($("#spasswordA").val());
+
+                $.post("/Home/add", { "number": sno, "name": sname, "sex": ssex, "code": spassword }, function (result) {
+                    var v = result.data;
+                    if (v == 1) {
+                        alert("注册成功!");                      
+                    }
+                    else {
+                        alert("注册失败!");
+                    }
+                })
+            }
+
+            function checkLogin() {
+                var num = $.trim($("#id_account_l").val());
+                var password = $.trim($("#id_password_l").val());
+                $.post("/Home/checkLogin", { "number": num, "password": password }, function (result) {           
+                    if (result) {
+                        alert("登录成功!");
+                        window.location.href = "Users";
+                    }
+                    else {
+                        alert("登录失败!");
+                    }
+                })
+            }
+            function search_book() {
+                var name = $.trim($("#search").val());
+                
+                $.post("/Home/search_book", { "name": name }, function (data) {
+                    if (data) {
+                        var result = JSON.parse(data);                    
+                        $("#content_book_js_c").append("<div class='content_book_js_con'><ul><li>书名:" + result.name + "</li><li>IBSN:" + result.ISBN + "</li><li>作者:" + result.author + "</li><li>出版社:" + result.pub + "</li><li>价格:" + result.price + "</li><li>内容简介:" + result.content + "</li></ul></div>");
+                    }
+                    else  {
+                        alert("查询失败!");
+                    }
+                })
+            }
+        </script>  
+      
+	</body>
+</html>
+
